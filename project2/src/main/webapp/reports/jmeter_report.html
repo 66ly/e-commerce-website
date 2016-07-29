@@ -1,0 +1,114 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: linen;
+}
+
+td {
+    border-top-style: solid;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr style="font-weight:bold; background-color: orange">
+    <td width="300px">Single-instance version cases</td>
+    <td>Graph Results Screenshot</td>
+    <td>Average Query Time(ms)</td>
+    <td>Average Search Servlet Time(ms)</td>
+    <td>Average JDBC Time(ms)</td>
+    <td>Analysis</td>
+  </tr>
+  <tr>
+    <td>Case 1: HTTP/1 thread</td>
+    <td><img src="../images/single_1.png" alt="Graph Results Screenshot Case 1" style="width:304px;height:228px;"></td>
+    <td>97</td>
+    <td>3.07</td>
+    <td>2.04</td>
+    <td>single instance has shorter query time but long search and jdbc time</td>
+  </tr>
+  <tr>
+    <td>Case 2: HTTP/10 threads</td>
+    <td><img src="../images/single_2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
+    <td>140</td>
+    <td>3.3</td>
+    <td>1.37</td>
+    <td>10 threads longer time than 1 thread</td>
+  </tr>
+  <tr>
+    <td>Case 3: HTTPS/10 threads</td>
+    <td><img src="../images/single_3.png" alt="Graph Results Screenshot Case 3" style="width:304px;height:228px;"></td>
+    <td>121</td>
+    <td>10.9</td>
+    <td>0.07</td>
+    <td>https has longer search servlet time</td>
+  </tr>
+  <tr>
+    <td>Case 4: HTTP/10 threads/No prepared statements</td>
+    <td><img src="../images/single_4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>131</td>
+    <td>2.2</td>
+    <td>0.85</td>
+    <td>no prepared statements seems similar to prepareds ones</td>
+  </tr>
+  <tr>
+    <td>Case 5: HTTP/10 threads/No connection pooling</td>
+    <td><img src="../images/single_5.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>136</td>
+    <td>3.3</td>
+    <td>1.45</td>
+    <td>no connection pooling has longer consuming time</td>
+  </tr>
+
+</table> 
+
+
+<table style="width:100%">
+  <tr style="font-weight:bold; background-color: orange">
+    <td width="300px">Scaled version cases</td>
+    <td>Graph Results Screenshot</td>
+    <td>Average Query Time(ms)</td>
+    <td>Average Search Servlet Time(ms)</td>
+    <td>Average JDBC Time(ms)</td>
+    <td>Analysis</td>
+  </tr>
+  <tr>
+    <td>Case 1: HTTP/1 thread</td>
+    <td><img src="../images/scaled_1.png" alt="Graph Results Screenshot Case 1" style="width:304px;height:228px;"></td>
+    <td>146</td>
+    <td>1.34</td>
+    <td>0.49</td>
+    <td>scaled instances has longer query time but shorter jdbc and servlet time</td>
+  </tr>
+  <tr>
+    <td>Case 2: HTTP/10 threads</td>
+    <td><img src="../images/scaled_2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
+    <td>135</td>
+    <td>2.0</td>
+    <td>0.82</td>
+    <td>10 thread has longer jdbc and servlet time than 1 thread</td>
+  </tr>
+  <tr>
+    <td>Case 3: HTTP/10 threads/No prepared statements</td>
+    <td><img src="../images/scaled_3.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>139</td>
+    <td>1.7</td>
+    <td>0.68</td>
+    <td>similar to prepared ones</td>
+  </tr>
+  <tr>
+    <td>Case 4: HTTP/10 threads/No connection pooling</td>
+    <td><img src="../images/scaled_4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>156</td>
+    <td>1.81</td>
+    <td>0.76</td>
+    <td>longer time than with connection pooling</td>
+  </tr>
+
+</table> 
+
+</body>
+</html>
